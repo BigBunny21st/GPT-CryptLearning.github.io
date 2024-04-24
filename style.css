@@ -1,0 +1,32 @@
+/* root suivit de color permet de parametrer la variable color. Nous choisissons les colors et nous appelerons cette variable si nous avons besoin de la couleur en question. Par exemple aussi, si nous changons un jour le paramettrage, alors partous dans le site ou cette variable aura été appelé, la couleur changera. */
+
+:root {
+    --color1: rgb(54, 119, 75);
+    --color2: rgb(212, 113, 83);
+    --color3: rgb(41, 24, 17);
+    --color4: rgb(251, 252, 254);
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: url(./domik-art-kamni-vodopad-145184.jpeg) center/cover;
+        height: 100vh;
+        font-family: fantasy;
+        color: var(--color2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        background: rgba(13, 14, 14, 0.829);
+        width: calc(100% - 100px);
+        padding: 20px 20px 20px;
+        box-shadow: 014px 17px 8px 1px;
+        border-radius: 10px;
+        backdrop-filter: blur(2px);
+    }
