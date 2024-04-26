@@ -2,7 +2,7 @@
 
 :root {
     --color1: rgb(54, 119, 75);
-    --color2: rgb(212, 113, 83);
+    --color2: rgb(83, 212, 137);
     --color3: rgb(41, 24, 17);
     --color4: rgb(251, 252, 254);
 
@@ -15,7 +15,7 @@
     body {
         background: url(./domik-art-kamni-vodopad-145184.jpeg) center/cover;
         height: 100vh;
-        font-family: fantasy;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: var(--color2);
         display: flex;
         align-items: center;
@@ -27,6 +27,44 @@
         width: calc(100% - 100px);
         padding: 20px 20px 20px;
         box-shadow: 014px 17px 8px 1px;
-        border-radius: 10px;
-        backdrop-filter: blur(2px);
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+    }
+
+    .card:before {
+        content: "\2604";
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 4rem;
+    }
+
+    h1 {
+        margin-bottom: 25px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
+
+    .polygon-container {
+        filter: drop-shadow(-1px 2px 3px var(--color2));
+        place-self: center left;
+    }
+
+    .polygon {
+        clip-path: polygon(23% 53%, 0% 20%, 13% 59%, 0% 80%, 21% 69%, 6% 97%, 24% 97%, 93% 38%, 36% 70%, 100% 18%, 52% 0, 35% 54%);
+        background: var(--color2);
+        height: 200px;
+        width: 300px;
+        background: linear-gradient(169deg, rgba(2, 0, 36, 1) 0%, rgba(128, 77, 14, 0.7875525210084033) 40%, rgba(128, 14, 37, 0.8015581232492998) 57%, rgba(14, 106, 128, 0.7763480392156863) 81%, rgba(122, 73, 15, 0.896796218487395) 100%);
+    }
+
+    p {
+        line-height: 30px;
+        margin: 15px 0;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 15;
+        overflow: hidden;
     }
