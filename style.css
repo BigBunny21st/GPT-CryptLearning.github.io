@@ -3,8 +3,8 @@
 :root {
     --color1: rgb(54, 119, 75);
     --color2: rgb(83, 212, 137);
-    --color3: rgb(41, 24, 17);
-    --color4: rgb(251, 252, 254);
+    --color3: rgb(109, 75, 1);
+    --color4: rgb(144, 18, 202);
 
     * {
         margin: 0;
@@ -20,6 +20,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
 
     .card {
@@ -29,6 +30,9 @@
         box-shadow: 014px 17px 8px 1px;
         border-radius: 15px;
         backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .card:before {
@@ -40,17 +44,74 @@
     }
 
     h1 {
-        margin-bottom: 25px;
+        margin-bottom: 10px;
+        position: relative;
+        user-select: none;
+    }
+
+    .loader {
+        position: relative;
+        width: 400px;
+        height: 4px;
+        background: black;
+
+
+    }
+
+    .loader::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(0, 255, 200);
+        transform-origin: center;
+        animation: animate 10s linear infinite;
+    }
+
+
+    /*h1::after {
+        content: "";
+        position: absolute;
+        background: pink;
+        height: 2px;
+        width: 100%;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        animation: anim 10s ease-in-out forwards;
+        
+    }*/
+
+    @keyframes animate {
+
+        0%,
+        20% {
+            transform: scaleX(0);
+        }
+
+        40% {
+            transform: scaleX(1);
+            transform-origin: center;
+        }
+
+        40.000001%,
+        60% {
+            transform: scaleX(1);
+            transform-origin: right;
+        }
+
+
     }
 
     .grid-container {
         display: grid;
-        grid-template-columns: 20% 80%;
+        grid-template-columns: 30% 70%;
     }
 
     .polygon-container {
         filter: drop-shadow(-1px 2px 3px var(--color2));
         place-self: center left;
+
     }
 
     .polygon {
@@ -63,8 +124,135 @@
 
     p {
         line-height: 30px;
-        margin: 15px 0;
+        margin: 60px 0;
+        display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 15;
+        -webkit-line-clamp: 10;
         overflow: hidden;
+        text-align: justify;
     }
+
+    p::selection {
+        background: var(--color2);
+        color: var(--color2);
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px 10px;
+
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked+label {
+    background: rgb(155, 7, 147);
+    transform: scale(1.6);
+    filter: brightness(150%);
+}
+
+
+label {
+
+    cursor: pointer;
+    border: 1px solid var(--color2);
+    background: rgb(126, 44, 57);
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.4s;
+    font-size: 40px;
+    user-select: none;
+}
+
+label:first-of-type:hover {
+    animation: label1 1s infinite linear;
+}
+
+@keyframes label1 {
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.email {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.email input {
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 3px solid transparent;
+    transition: 0.4s;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color2);
+    min-width: 150px;
+    width: 50%;
+    max-width: 350px;
+}
+
+input[type="text"]:focus {
+    background: transparent;
+    border: 4px solid rgb(155, 7, 147);
+    border-radius: 30px;
+}
+
+input[type="text"]::placeholder {
+    color: var(--color2);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: var(--color2);
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+    transition: 0.4s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    display: block;
+}
+
+button:hover {
+    letter-spacing: 10px;
+    background: transparent;
+    color: aquamarine;
+}
+
+button:active {
+    transform: scale(2);
+    background: rgb(155, 7, 147);
+    ;
+}
+
+button:hover+a,
+a:hover {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a {
+    color: var(--color2);
+    display: block;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(500px);
+    transition: 1s;
+}
+
+a:visited {
+    color: pink;
+}
